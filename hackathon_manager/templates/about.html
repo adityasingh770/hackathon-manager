@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block title %}About - Hackathon Management{% endblock %} {% block content %}
+<div class="container mt-5">
+  <h1 class="mb-5">About Hackathon Management</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <p class="lead mb-5">
+        Hackathon Management is a web application designed to help you manage your hackathon event. Whether you're planning a small local hackathon or
+        a large international event, Hackathon Management has the tools and resources you need to make it a success.
+      </p>
+      <h2 class="mb-4">Features</h2>
+      <p>With Hackathon Management, you can:</p>
+      <ul>
+        <li>Create and manage hackathon events, including event details, dates, location, and registration information</li>
+        <li>Register and manage participants, including team registration and member management</li>
+        <li>Organize and manage teams, including team creation, management, and communication</li>
+        <li>Track progress and milestones, including deadlines, checkpoints, and judging criteria</li>
+        <li>Manage sponsors and prizes, including sponsor registration and prize management</li>
+      </ul>
+    </div>
+    {% comment %}
+    <div class="col-md-4">
+      <img src="{% static 'images/about-image.jpg' %}" class="img-fluid rounded" alt="Hackathon Management" />
+    </div>
+    {% endcomment %}
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-8">
+      <h2 class="mb-4">Benefits</h2>
+      <p>
+        Our platform is designed to be user-friendly and customizable, so you can create a unique experience for your hackathon participants. Some of
+        the benefits of using Hackathon Management include:
+      </p>
+      <ul>
+        <li>Streamlined organization and management, allowing you to focus on creating a great hackathon experience</li>
+        <li>Automated registration and team creation, making it easy for participants to sign up and join teams</li>
+        <li>Easy communication and collaboration, facilitating teamwork and idea sharing</li>
+        <li>Real-time progress tracking, allowing you to stay on top of key milestones and deadlines</li>
+        <li>Seamless sponsor and prize management, making it easy to attract and reward top talent</li>
+      </ul>
+      <h2 class="mb-4 mt-5">Customization</h2>
+      <p>
+        We understand that every hackathon is unique, which is why we've made Hackathon Management fully customizable. You can easily modify the
+        platform to fit your specific needs, including:
+      </p>
+      <ul>
+        <li>Customizing the event registration form to collect the information you need</li>
+        <li>Creating custom fields for participant and team profiles</li>
+        <li>Setting up custom judging criteria and scoring rubrics</li>
+        <li>Customizing the design and branding of your hackathon website</li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Support</h3>
+          <ul>
+            <li>24/7 email and chat support</li>
+            <li>Video tutorials and documentation to help you get started</li>
+            <li>Regular updates and new feature releases</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
