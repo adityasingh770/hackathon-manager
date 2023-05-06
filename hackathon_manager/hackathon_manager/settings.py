@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'widget_tweaks',
     'accounts.apps.AccountsConfig',
     'hackathon.apps.HackathonConfig',
     'participant.apps.ParticipantConfig'

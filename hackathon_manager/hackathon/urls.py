@@ -5,5 +5,8 @@ from . import views
 app_name = 'hackathon'
 
 urlpatterns = [
-    path('', views.HackathonCreateView.as_view(), name="create"),
+    path('', views.HackathonListView.as_view(), name="list"),
+    path('create/', views.HackathonCreateView.as_view(), name="create"),
+    path('update/', views.HackathonModifyView.as_view(), name="update"),
+    path('detail/<slug>', views.HackathonDetailView.as_view(), name="detail"),
 ]
