@@ -9,14 +9,14 @@ class HackathonCreateView(LoginRequiredMixin, CreateView):
     model = Hackathon
     form_class = HackathonCreateForm
     template_name = 'hackathon/hackathon_form.html'
-    success_url = reverse_lazy('hackathon_list')
+    success_url = reverse_lazy('hackathon:list')
 
 
 class HackathonModifyView(LoginRequiredMixin, UpdateView):
     model = Hackathon
     form_class = HackathonUpdateForm
     template_name = 'hackathon/hackathon_form.html'
-    success_url = reverse_lazy('hackathon_list')
+    success_url = reverse_lazy('hackathon:list')
 
 
 class HackathonListView(ListView):

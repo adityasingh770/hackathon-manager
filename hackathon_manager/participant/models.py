@@ -18,9 +18,9 @@ class ParticipantHackathon(models.Model):
         Participant, on_delete=models.CASCADE)
     hackathon = models.ForeignKey(Hackathon, on_delete=models.CASCADE)
     submission_file = models.FileField(
-        upload_to='uploads/hackathon_submissions/file/', null=True, blank=True)
+        upload_to='media/hackathon_submissions/file/', null=True, blank=True)
     submission_image = models.ImageField(
-        upload_to='uploads/hackathon_submissions/image/', null=True, blank=True)
+        upload_to='media/hackathon_submissions/image/', null=True, blank=True)
     submission_link = models.URLField(null=True, blank=True)
 
     def clean(self):

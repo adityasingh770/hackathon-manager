@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-4">{{ hackathon.title }}</h1>
+      <p class="mb-4">{{ hackathon.description }}</p>
+      {% if hackathon.background_image %}
+      <img src="{{ hackathon.background_image.url }}" class="img-fluid mb-4" />
+      {% endif %} {% if hackathon.hackathon_image %}
+      <img src="{{ hackathon.hackathon_image.url }}" class="img-fluid mb-4" />
+      {% endif %}
+      <p><strong>Submission Type:</strong> {{ hackathon.submission_type }}</p>
+      <p><strong>Start Date/Time:</strong> {{ hackathon.start_datetime }}</p>
+      <p><strong>End Date/Time:</strong> {{ hackathon.end_datetime }}</p>
+      <p><strong>Reward/Prize:</strong> {{ hackathon.reward_prize }}</p>
+      <a href="{% url 'hackathon:update' hackathon.slug %}" class="btn btn-primary">Edit</a>
+      {% comment %} <a href="{% url 'hackathon:delete' hackathon.slug %}" class="btn btn-danger">Delete</a> {% endcomment %}
+    </div>
+  </div>
+</div>
+{% endblock %}
