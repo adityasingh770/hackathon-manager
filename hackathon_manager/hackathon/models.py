@@ -2,6 +2,11 @@ from django.db import models
 from django.urls import reverse
 # from markdown import markdown
 from django.utils.text import slugify
+from django import template
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
+register = template.Library()
 
 
 class Hackathon(models.Model):
@@ -23,6 +28,7 @@ class Hackathon(models.Model):
     start_datetime = models.DateTimeField()
     end_datetime = models.DateTimeField()
     reward_prize = models.DecimalField(max_digits=8, decimal_places=2)
+    participants = models.ManyToManyField(User, through="Participant")
 
     def __str__(self):
         return self.title
@@ -37,3 +43,16 @@ class Hackathon(models.Model):
 
     class Meta:
         ordering = ["start_datetime"]
+
+
+class Participant(models.Model):
+    hackathon = models.ForeignKey(
+        Hackathon, related_name='memberships', on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, related_name='user_groups', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        unique_together = ("hackathon", "user")
