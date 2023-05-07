@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup.apps.CleanupConfig',
     'bootstrap4',
     'accounts.apps.AccountsConfig',
     'hackathon.apps.HackathonConfig',

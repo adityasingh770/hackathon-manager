@@ -10,9 +10,9 @@ class Hackathon(models.Model):
     description = models.TextField()
     # description_html = models.TextField(editable=False, default='', blank=True)
     background_image = models.ImageField(
-        upload_to=f'media/background_image/')
+        upload_to=f'background_image/')
     hackathon_image = models.ImageField(
-        upload_to=f'media/hackathon_image/')
+        upload_to=f'hackathon_image/')
     SUBMISSION_CHOICES = [
         ('image', 'Image'),
         ('file', 'File'),

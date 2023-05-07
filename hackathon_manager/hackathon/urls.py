@@ -9,4 +9,5 @@ urlpatterns = [
     path('create/', views.HackathonCreateView.as_view(), name="create"),
     path('update/<slug>', views.HackathonModifyView.as_view(), name="update"),
     path('detail/<slug>', views.HackathonDetailView.as_view(), name="detail"),
+    path('delete/<slug>', views.HackathonDeleteView.as_view(), name='delete'),
 ]

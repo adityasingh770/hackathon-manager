@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, ListView, DetailView
+from django.views.generic import CreateView, UpdateView, ListView, DetailView, DeleteView
 from .models import Hackathon
 from .forms import HackathonCreateForm, HackathonUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -29,3 +29,8 @@ class HackathonDetailView(DetailView):
     model = Hackathon
     template_name = 'hackathon/hackathon_detail.html'
     context_object_name = 'hackathon'
+
+
+class HackathonDeleteView(LoginRequiredMixin, DeleteView):
+    model = Hackathon
+    success_url = reverse_lazy('hackathon:list')

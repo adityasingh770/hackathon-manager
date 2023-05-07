@@ -14,7 +14,7 @@
       <p><strong>End Date/Time:</strong> {{ hackathon.end_datetime }}</p>
       <p><strong>Reward/Prize:</strong> {{ hackathon.reward_prize }}</p>
       <a href="{% url 'hackathon:update' hackathon.slug %}" class="btn btn-primary">Edit</a>
-      {% comment %} <a href="{% url 'hackathon:delete' hackathon.slug %}" class="btn btn-danger">Delete</a> {% endcomment %}
+      <a href="{% url 'hackathon:delete' hackathon.slug %}" class="btn btn-danger">Delete</a>
     </div>
   </div>
 </div>
