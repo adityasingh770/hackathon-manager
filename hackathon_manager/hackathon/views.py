@@ -6,6 +6,7 @@ from .models import Hackathon, Participant
 from .forms import HackathonCreateForm, HackathonUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 
 # Hackathon Views
 
@@ -87,7 +88,8 @@ class Unregister(LoginRequiredMixin, RedirectView):
             messages.success(
                 self.request, "You have successfully Unregistered.")
         return super().get(request, *args, **kwargs)
-    
+
+
 class UserHackathonListView(LoginRequiredMixin, ListView):
     model = Participant
     template_name = 'hackathon/user_hackathons.html'
@@ -95,4 +97,32 @@ class UserHackathonListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         queryset = Participant.objects.filter(user=self.request.user)
+        return queryset
+
+
+class RegisteredUser(ListView):
+    model = get_user_model()
+    template_name = 'hackathon/registered_user.html'
+    context_object_name = 'users'
+
+    def get_queryset(self):
+        queryset = set()
+        for participant in Participant.objects.all():
+            queryset.add(participant.user)
+        return queryset
+
+
+class UnregisteredUser(ListView):
+    model = get_user_model()
+    template_name = 'hackathon/unregistered_user.html'
+    context_object_name = 'users'
+
+    def get_queryset(self):
+        registered = set()
+        queryset = set()
+        for participant in Participant.objects.all():
+            registered.add(participant.user)
+        for user in get_user_model().objects.all():
+            if user not in registered:
+                queryset.add(user)
         return queryset

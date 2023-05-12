@@ -43,6 +43,12 @@
             <a class="nav-link" href="{% url 'submission:list' %}">Submissions</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'hackathon:registered' %}">User's Registered'</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'hackathon:not_registered' %}">User's Unregistered'</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:logout' %}">Log out</a>
           </li>
           {% else %}

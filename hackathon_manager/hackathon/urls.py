@@ -11,5 +11,9 @@ urlpatterns = [
     path('delete/<slug>', views.HackathonDeleteView.as_view(), name='delete'),
     path('register/<slug>/', views.Register.as_view(), name="register"),
     path('unregister/<slug>/', views.Unregister.as_view(), name="unregister"),
-    path('user_hackathons/', views.UserHackathonListView.as_view(), name="user_hackathons")
+    path('user_hackathons/', views.UserHackathonListView.as_view(),
+         name="user_hackathons"),
+    path('registered_user/', views.RegisteredUser.as_view(), name="registered"),
+    path('unregistered_user/', views.UnregisteredUser.as_view(),
+         name="not_registered"),
 ]
