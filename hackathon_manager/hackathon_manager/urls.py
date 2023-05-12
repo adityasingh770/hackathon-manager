@@ -13,6 +13,7 @@ urlpatterns = [
     path('accounts/', include("accounts.urls", namespace="accounts")),
     path('accounts/', include("django.contrib.auth.urls")),
     path('hackathon/', include("hackathon.urls", namespace="hackathon")),
+    path('submissions/', include("submission.urls", namespace="submission")),
 ]
 
 if settings.DEBUG:

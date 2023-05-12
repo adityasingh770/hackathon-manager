@@ -15,8 +15,9 @@
       <p><strong>Reward/Prize:</strong> {{ hackathon.reward_prize }}</p>
       <a href="{% url 'hackathon:update' hackathon.slug %}" class="btn btn-primary">Edit</a>
       <a href="{% url 'hackathon:delete' hackathon.slug %}" class="btn btn-danger">Delete</a>
+      {% if user not in hackathon.participants.all %}
       <a href="{% url 'hackathon:register' hackathon.slug %}" class="btn btn-danger">Register</a>
-      <a href="{% url 'hackathon:unregister' hackathon.slug %}" class="btn btn-danger">Unregister</a>
+      {% endif %}
     </div>
   </div>
 </div>

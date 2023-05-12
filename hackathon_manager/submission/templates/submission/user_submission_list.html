@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1 class="mb-4">Submissions</h1>
+  <div class="row">
+    {% for submission in submissions %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ submission.hackathon.title }}</h5>
+          <p class="card-text">{{ submission.hackathon.submission_type }}</p>
+          <a href="{% url 'submission:detail' submission.pk %}" class="btn btn-primary">View Detail</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

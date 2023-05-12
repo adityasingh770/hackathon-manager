@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{ submission.hackathon.title }}</h1>
+{% if submission.submission_file %}
+<p><a href="{{ submission.submission_file.url }}">Download file</a></p>
+{% endif %} {% if submission.submission_image %}
+<img src="{{ submission.submission_image.url }}" alt="{{ submission.title }}" />
+{% endif %} {% if submission.submission_link %}
+<p><a href="{{ submission.submission_link }}">{{ submission.submission_link }}</a></p>
+{% endif %}
+<a href="{% url 'submission:update' submission.pk %}" class="btn btn-primary">Resubmit</a>
+<a href="{% url 'submission:delete' submission.pk %}" class="btn btn-danger">Delete Submission</a>
+{% endblock %}

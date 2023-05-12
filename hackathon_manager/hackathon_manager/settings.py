@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'accounts.apps.AccountsConfig',
     'hackathon.apps.HackathonConfig',
-    'participant.apps.ParticipantConfig'
+    'submission.apps.SubmissionConfig'
 ]
 
 MIDDLEWARE = [

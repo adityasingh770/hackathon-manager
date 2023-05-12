@@ -37,10 +37,10 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Participations</a>
+            <a class="nav-link" href="{% url 'hackathon:user_hackathons' %}">Participations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Submissions</a>
+            <a class="nav-link" href="{% url 'submission:list' %}">Submissions</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:logout' %}">Log out</a>

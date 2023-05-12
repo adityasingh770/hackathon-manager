@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1 class="mb-4">Hackathons Registered</h1>
+  <div class="row">
+    {% for participant in participations %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ participant.hackathon.title }}</h5>
+          <p class="card-text">{{ participant.hackathon.description }}</p>
+          <a href="{% url 'hackathon:detail' participant.hackathon.slug %}" class="btn btn-primary">View Details</a>
+          <a href="{% url 'hackathon:unregister' participant.hackathon.slug %}" class="btn btn-danger">Unregister</a>
+          <a href="{% url 'submission:submit' participant.hackathon.slug %}" class="btn btn-primary">Submission</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

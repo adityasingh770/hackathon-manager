@@ -69,7 +69,7 @@ class Register(LoginRequiredMixin, RedirectView):
 class Unregister(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
-        return reverse("hackathon:list", kwargs={"slug": self.kwargs.get("slug")})
+        return reverse("hackathon:detail", kwargs={"slug": self.kwargs.get("slug")})
 
     def get(self, request, *args, **kwargs):
         try:
@@ -80,10 +80,19 @@ class Unregister(LoginRequiredMixin, RedirectView):
 
         except Participant.DoesNotExist:
             messages.warning(
-                self.request, "You can't Unregister as you not registered.")
+                self.request, "You can't Unregister as you are not registered.")
 
         else:
             participants.delete()
             messages.success(
                 self.request, "You have successfully Unregistered.")
         return super().get(request, *args, **kwargs)
+    
+class UserHackathonListView(LoginRequiredMixin, ListView):
+    model = Participant
+    template_name = 'hackathon/user_hackathons.html'
+    context_object_name = 'participations'
+
+    def get_queryset(self):
+        queryset = Participant.objects.filter(user=self.request.user)
+        return queryset

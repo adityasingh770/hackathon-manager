@@ -9,6 +9,7 @@ urlpatterns = [
     path('update/<slug>', views.HackathonModifyView.as_view(), name="update"),
     path('detail/<slug>', views.HackathonDetailView.as_view(), name="detail"),
     path('delete/<slug>', views.HackathonDeleteView.as_view(), name='delete'),
-    path("register/<slug>/", views.Register.as_view(), name="register"),
-    path("unregister/<slug>/", views.Unregister.as_view(), name="unregister"),
+    path('register/<slug>/', views.Register.as_view(), name="register"),
+    path('unregister/<slug>/', views.Unregister.as_view(), name="unregister"),
+    path('user_hackathons/', views.UserHackathonListView.as_view(), name="user_hackathons")
 ]

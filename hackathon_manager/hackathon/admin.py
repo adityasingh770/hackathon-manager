@@ -1,4 +1,5 @@
 from django.contrib import admin
-from hackathon.models import Hackathon
+from .models import Hackathon, Participant
 
 admin.site.register(Hackathon)
+admin.site.register(Participant)
